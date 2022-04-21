@@ -8,7 +8,16 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  <div id="gameStatusContainer"></div>
+  <div id="playerNameEntryContainer">
+    <form id="playerEntryForm">
+      <input type="text" name="player1Name" id="player1Name" placeholder="Player 1 name" required>
+      <input type="text" name="player1Marker" id="player1Marker" pattern="\p{Extended_Pictographic}[\u200D\p{Extended_Pictographic}]*|[a-zA-Z]|\p{Emoji}{2}" value="X" required title="Please enter a single character(no spaces around it), or an emoji. Note that some complicated emoji won't work great.">
+      <input type="text" name="player2Name" id="player2Name" placeholder="Player 2 name" required>
+      <input type="text" name="player2Marker" id="player2Marker" pattern="\p{Extended_Pictographic}[\u200D\p{Extended_Pictographic}]*|[a-zA-Z]|\p{Emoji}{2}" value="O" required title="Please enter a single character(no spaces around it), or an emoji. Note that some complicated emoji won't work great.">
+      <input type="submit" id="startGameButton" value="Start game">
+    </form>
+  </div>
+  <div id="gameStatusContainer">Welcome to Tic Tac Toe</div>
   <div id="gameContainer">
     <div id="00" class="block"></div>
     <div id="01" class="block"></div>

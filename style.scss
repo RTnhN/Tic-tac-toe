@@ -16,6 +16,10 @@ body{
   font-size: 8em;
 }
 
+.winner{
+  background-color: hsl(0, 100%, 80%);
+}
+
 #gameContainer{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -28,4 +32,14 @@ body{
 }
 #gameStatusContainer{
   margin-bottom: 20px;
+}
+
+#playerEntryForm{
+  display:grid;
+  grid-template-columns: 1fr 1.2em;
+}
+
+#startGameButton{
+  margin-top: 20px;
+  grid-column: 1/3;
 }
