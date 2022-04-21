@@ -3,7 +3,12 @@ const gameboard = (() => {
   const blankGrid = () => [["", "", ""], ["", "", ""], ["", "", ""]];
   let grid = blankGrid();
   function displayBoard(){grid.forEach((row) => console.log(row))};
-  function clearGrid() { grid = blankGrid(); remainingPiecePlaces = 9; writeToPage()}
+  function clearGrid() { 
+    grid = blankGrid(); 
+    remainingPiecePlaces = 9; 
+    writeToPage();
+    document.querySelectorAll(".block").forEach((block)=>block.classList.remove("winner"));
+  }
   const squareBlank = (row, col) => grid[row][col] === "";
   function placePiece(player, row, col) {
     grid[row][col] = player;
@@ -37,8 +42,12 @@ const gameboard = (() => {
     }
     return ["",[]]
   }
+  function colorWinners(){
+    checkForWinner()[1].forEach(id=>document.getElementById(id).classList.add("winner"));    
+  }
+
   const allSame = array => array.every(v => v === array[0])
-  return { grid, clearGrid, placePiece, squareBlank, writeToPage, checkForWinner,displayBoard }
+  return { grid, clearGrid, placePiece, squareBlank, writeToPage, checkForWinner,displayBoard, colorWinners }
 })();
 
 const [player1, player2] = (() => {
@@ -85,7 +94,7 @@ const game = (() => {
       } else {
         winner = gameboard.checkForWinner()[0] === player1.marker ? player1 : player2;
         displayStatus(`${winner.name} won the game`);
-        gameboard.checkForWinner()[1].forEach((id)=>document.getElementById(id).classList.add("winner"));
+        gameboard.colorWinners();
       }
       document.querySelectorAll(".block").forEach((block) => block.removeEventListener("click", processClick))
       return
@@ -114,7 +123,6 @@ const game = (() => {
   }
   function reset() {
     gameboard.clearGrid();
-    document.querySelectorAll(".block").forEach((block)=>block.classList.remove("winner"));
   }
 
   return { start, reset, watchForStart }

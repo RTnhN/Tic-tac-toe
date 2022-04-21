@@ -14,10 +14,12 @@ body{
   height: 100%;
   background-color: white;
   font-size: 8em;
+  transition: background-color 0.5s;
 }
 
 .winner{
   background-color: hsl(0, 100%, 80%);
+  transition: all 0.5s;
 }
 
 #gameContainer{
@@ -37,6 +39,7 @@ body{
 #playerEntryForm{
   display:grid;
   grid-template-columns: 1fr 1.2em;
+  margin-bottom: 1em;
 }
 
 #startGameButton{
