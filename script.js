@@ -86,8 +86,10 @@ const game = (() => {
         displayStatus(`${winner.marker} won the game`)
       }
       document.querySelectorAll(".block").forEach((block) => block.removeEventListener("click", processClick))
+      return
     }
     switchPlayers();
+    displayStatus(`${currentPlayer.marker} turn`);
 
   }
   function start() {
