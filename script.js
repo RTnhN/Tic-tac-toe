@@ -2,7 +2,8 @@ const gameboard = (() => {
   let remainingPiecePlaces = 9;
   const blankGrid = () => [["", "", ""], ["", "", ""], ["", "", ""]];
   let grid = blankGrid();
-  function displayBoard(){grid.forEach((row) => console.log(row))};
+  const returnGrid = () => grid;
+  function displayBoard(){console.table(grid)};
   function clearGrid() { 
     grid = blankGrid(); 
     remainingPiecePlaces = 9; 
@@ -47,7 +48,7 @@ const gameboard = (() => {
   }
 
   const allSame = array => array.every(v => v === array[0])
-  return { grid, clearGrid, placePiece, squareBlank, writeToPage, checkForWinner,displayBoard, colorWinners }
+  return {returnGrid, clearGrid, placePiece, squareBlank, writeToPage, checkForWinner,displayBoard, colorWinners }
 })();
 
 const [player1, player2] = (() => {
