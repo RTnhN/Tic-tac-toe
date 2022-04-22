@@ -47,6 +47,10 @@ body{
 }
 
 #startGameButton{
+  justify-self: center;
+  width: 50%;
   margin-top: 20px;
   grid-column: 1/3;
+  border: 1px solid black;
+  background-color: white;
 }
